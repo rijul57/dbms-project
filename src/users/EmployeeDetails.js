@@ -21,15 +21,9 @@ const EmployeeDetails = () => {
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Gender</th>
-            <th>Date of Birth</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Address</th>
-            <th>Salary</th>
-            <th>Position</th>
-            <th>Department</th>
-            <th>Managed By</th>
           </tr>
         </thead>
         <tbody>
@@ -37,15 +31,9 @@ const EmployeeDetails = () => {
             <td>{id}</td>
             <td>{employee.firstName}</td>
             <td>{employee.lastName}</td>
-            <td>{employee.gender}</td>
-            <td>{employee.dob}</td>
             <td>{employee.email}</td>
             <td>{employee.phone}</td>
             <td>{employee.address}</td>
-            <td>{employee.salary}</td>
-            <td>{employee.position}</td>
-            <td>{employee.dept}</td>
-            <td>{employee.managed}</td>
           </tr>
         </tbody>
       </table>

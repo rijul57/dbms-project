@@ -9,15 +9,9 @@ const Signup = () => {
   const [user, setUser] = useState({
     firstName:"", 
     lastName:"", 
-    gender:"", 
-    dob:"", 
     email:"", 
     phone:"", 
     address:"", 
-    salary:"", 
-    position:"", 
-    dept:"", 
-    managed:"",
     pass:""
   });
 
@@ -57,26 +51,6 @@ const Signup = () => {
             value={lastName}
             onChange={(e) => onInputChange(e)}
           />
-          <label htmlFor="gender">Gender:</label>
-          <input
-            type="text"
-            id="name"
-            name="gender"
-            autoComplete="off"
-            placeholder="Enter your gender"
-            value={gender}
-            onChange={(e) => onInputChange(e)}
-          />
-          <label htmlFor="date">Date of Birth:</label>
-          <input
-            type="date"
-            id="birthdate"
-            name="birthdate"
-            autoComplete="off"
-            placeholder="Enter your Date of Birth"
-            value={dob}
-            onChange={(e) => onInputChange(e)}
-          />
           <label htmlFor="email">Email:</label>
           <input
             type="text"
@@ -105,46 +79,6 @@ const Signup = () => {
             autoComplete="off"
             placeholder="Enter Address"
             value={address}
-            onChange={(e) => onInputChange(e)}
-          />
-          <label htmlFor="salary">Salary:</label>
-          <input
-            type="number"
-            id="salary"
-            name="salary"
-            autoComplete="off"
-            placeholder="Enter Salary"
-            value={salary}
-            onChange={(e) => onInputChange(e)}
-          />
-          <label htmlFor="position">Positon:</label>
-          <input
-            type="text"
-            id="position"
-            name="position"
-            autoComplete="off"
-            placeholder="Enter Position"
-            value={position}
-            onChange={(e) => onInputChange(e)}
-          />
-          <label htmlFor="dept">Department:</label>
-          <input
-            type="number"
-            id="dept"
-            name="dept"
-            autoComplete="off"
-            placeholder="Enter Department"
-            value={dept}
-            onChange={(e) => onInputChange(e)}
-          />
-          <label htmlFor="managed">Managed By:</label>
-          <input
-            type="number"
-            id="managed"
-            name="managed"
-            autoComplete="off"
-            placeholder="Enter Employee ID of manager"
-            value={managed}
             onChange={(e) => onInputChange(e)}
           />
           <label htmlFor="pass">Password:</label>
