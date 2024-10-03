@@ -27,10 +27,9 @@ const Login = () => {
       
       // Assuming your backend returns a token upon successful login
       if (response.status === 200) {
-        
-        const id = response.data.id;
+        const { id, ...employeeDetails } = response.data;
         // Redirect to homepage or another protected route
-        navigate("/${id}");
+        navigate(`/employee/${id}`, { state: { employee: employeeDetails } });
       }
     } catch (error) {
       console.error("Login failed", error.response.data);

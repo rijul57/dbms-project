@@ -1,60 +1,40 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 // import "./employeeDetails.css"; // Optional: Your styling
 
 const EmployeeDetails = () => {
+  const { state } = useLocation(); // Access the state passed from Login
+  const { employee } = state; 
   const { id } = useParams(); // Get the ID from the URL
-  const [employee, setEmployee] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchEmployeeDetails = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8080/employee/${id}`); // Adjust endpoint as needed
-        setEmployee(response.data);
-      } catch (error) {
-        console.error("Error fetching employee details", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEmployeeDetails();
-  }, [id]);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   if (!employee) {
-    return <div>No employee found!</div>;
+    return <div>No employee data available!</div>;
   }
 
   return (
     <div className="employeeDetails">
-      <h2>Employee Details</h2>
+      <h2>Employee Details for {employee.firstName} {employee.lastName}</h2>
       <table>
         <thead>
           <tr>
             <th>ID</th>
-            <th>firstName</th>
-            <th>lastName</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Gender</th>
-            <th>DoB</th>
+            <th>Date of Birth</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Address</th>
             <th>Salary</th>
             <th>Position</th>
-            <th>Dept</th>
-            <th>Managed_By</th>
-            {/* Add more fields as needed */}
+            <th>Department</th>
+            <th>Managed By</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{employee.id}</td>
+            <td>{id}</td>
             <td>{employee.firstName}</td>
             <td>{employee.lastName}</td>
             <td>{employee.gender}</td>
@@ -66,7 +46,6 @@ const EmployeeDetails = () => {
             <td>{employee.position}</td>
             <td>{employee.dept}</td>
             <td>{employee.managed}</td>
-            {/* Add more fields as needed */}
           </tr>
         </tbody>
       </table>
