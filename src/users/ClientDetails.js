@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useLocation, useParams } from "react-router-dom";
 // import "./employeeDetails.css"; // Optional: Your styling
 
-const EmployeeDetails = () => {
+const ClientDetails = () => {
   const { state } = useLocation(); // Access the state passed from Login
-  const { employee } = state; 
+  const { client } = state; 
   const { id } = useParams(); // Get the ID from the URL
 
-  if (!employee) {
-    return <div>No employee data available!</div>;
+  if (!client) {
+    return <div>No client data available!</div>;
   }
 
   return (
-    <div className="employeeDetails">
-      <h2>Employee Details for {employee.firstName} {employee.lastName}</h2>
+    <div className="clientdetails">
+      <h2>client Details for {client.firstName} {client.lastName}</h2>
       <table>
         <thead>
           <tr>
@@ -29,11 +28,11 @@ const EmployeeDetails = () => {
         <tbody>
           <tr>
             <td>{id}</td>
-            <td>{employee.firstName}</td>
-            <td>{employee.lastName}</td>
-            <td>{employee.email}</td>
-            <td>{employee.phone}</td>
-            <td>{employee.address}</td>
+            <td>{client.firstName}</td>
+            <td>{client.lastName}</td>
+            <td>{client.email}</td>
+            <td>{client.phone}</td>
+            <td>{client.address}</td>
           </tr>
         </tbody>
       </table>
@@ -41,4 +40,4 @@ const EmployeeDetails = () => {
   );
 };
 
-export default EmployeeDetails;
+export default clientDetails;

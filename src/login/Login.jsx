@@ -6,7 +6,6 @@ import axios from "axios";
 const Login = () => {
   let navigate = useNavigate();
 
-  // State to hold email and password
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -14,22 +13,20 @@ const Login = () => {
 
   const { email, password } = loginData;
 
-  // Handle input change
   const onInputChange = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/login", loginData);
+      const response = await axios.post("http://localhost:8080/api/login2", loginData);
       
       // Assuming your backend returns a token upon successful login
       if (response.status === 200) {
         const { id, ...employeeDetails } = response.data;
         // Redirect to homepage or another protected route
-        navigate(`/employee/${id}`, { state: { employee: employeeDetails } });
+        navigate(`/client/${id}`, { state: { employee: employeeDetails } });
       }
     } catch (error) {
       console.error("Login failed", error.response.data);
